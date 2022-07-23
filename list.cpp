@@ -3,7 +3,6 @@
 #include <functional>
 #include <vector>
 #include <tuple>
-#include <set>
 
 template <typename A, typename B>
 std::list<B> operator>>=(std::list<A> const& in_list, std::function<std::list<B>(A)> f) {
@@ -91,7 +90,6 @@ int main(const int argc, char const *argv[]) {
         return surrounding_coords;
     };
 
-
     const auto next_moves = start_coords >>= get_neighbour_coords;
 
     std::cout << "next_moves:" << '\n';
@@ -99,13 +97,14 @@ int main(const int argc, char const *argv[]) {
         std::cout << "(row, column): (" << std::get<0>(coord) << ", " << std::get<1>(coord) << ")\n";
     }
 
-
     const auto after_two_turns = (start_coords >>= get_neighbour_coords) >>= get_neighbour_coords;
+
     // Note the duplicates that will appear from different combinations of moves leading to the same square
     std::cout << "after_two_turns:" << '\n';
     for (const auto &coord : after_two_turns) {
         std::cout << "(row, column): (" << std::get<0>(coord) << ", " << std::get<1>(coord) << ")\n";
     }
+
 
     return 0;
 }
