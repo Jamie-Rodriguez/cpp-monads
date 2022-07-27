@@ -4,6 +4,7 @@
 #include <vector>
 #include <tuple>
 
+
 template <typename A, typename B>
 std::list<B> operator>>=(std::list<A> const& in_list, std::function<std::list<B>(A)> f) {
     std::list<B> new_list;

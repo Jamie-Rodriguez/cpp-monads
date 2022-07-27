@@ -3,6 +3,7 @@
 #include <math.h>
 #include <map>
 
+
 template <typename A> class Maybe {
     private:
         A value;
